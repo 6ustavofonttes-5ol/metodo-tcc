@@ -13,52 +13,92 @@
 
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Open Sans',sans-serif;color:#333;line-height:1.6}
+        body{font-family:'Open Sans',sans-serif;color:#333;line-height:1.6; background-color: #fff;}
         h1,h2,h3{font-family:'Montserrat',sans-serif}
         .container{max-width:1000px;margin:auto;padding:0 20px}
-        .btn{display:inline-block;padding:16px 35px;border-radius:50px;font-weight:700;text-decoration:none}
+        .btn{display:inline-block;padding:16px 35px;border-radius:50px;font-weight:700;text-decoration:none;transition: 0.3s;cursor: pointer;border:none;}
+        .btn:hover{transform: scale(1.05); opacity: 0.9;}
         .btn-primary{background:#FF5722;color:#fff}
         .btn-secondary{background:#25D366;color:#fff;margin-top:15px}
         .btn-light{background:#fff;border:2px solid #FF5722;color:#FF5722;margin-top:20px}
 
-        .header{padding:15px 0;border-bottom:1px solid #eee}
+        .header{padding:15px 0;border-bottom:1px solid #eee; background: #fff;}
         .header-container{display:flex;justify-content:space-between;align-items:center}
         .logo{font-size:22px;font-weight:900;color:#2C5AA0}
         .price-tag{background:#2C5AA0;color:#fff;padding:6px 15px;border-radius:50px}
 
         .hero{background:#f8f9fa;padding:60px 0;text-align:center}
-        .hero h1{font-size:34px;color:#2C5AA0}
+        .hero h1{font-size:34px;color:#2C5AA0;line-height: 1.2;}
         .hero h1 span{color:#FF5722}
         .hero-subtitle{font-size:19px;color:#555;margin:22px 0}
 
-        .page-count{background:#fff;border:2px solid #FFD600;padding:25px;border-radius:8px;max-width:500px;margin:30px auto}
+        .page-count{background:#fff;border:2px solid #FFD600;padding:25px;border-radius:8px;max-width:500px;margin:30px auto;box-shadow: 0 4px 10px rgba(0,0,0,0.05)}
         .page-number{font-size:48px;font-weight:900;color:#FF5722}
 
-        /* DOR */
         .pain{background:#fff3f3;padding:55px 0}
         .pain h2{text-align:center;color:#b71c1c;margin-bottom:25px}
         .pain p{max-width:800px;margin:0 auto 15px;font-size:17px;color:#444}
         .pain strong{color:#b71c1c}
-
         .pain-cta{text-align:center;margin-top:30px}
 
-        .offer{padding:40px 0}
-        .offer-card{border:2px solid #2C5AA0;border-radius:8px;padding:35px;max-width:500px;margin:auto;text-align:center}
-        .price-box{background:#f1f3f5;padding:25px;margin:20px 0}
-        .new-price{font-size:36px;font-weight:900;color:#2C5AA0}
+        /* DEPOIMENTOS PROFISSIONAIS */
+        .testimonials{padding:60px 0;background:#f8f9fa}
+        .testimonials h2{text-align:center;color:#2C5AA0;margin-bottom:35px}
+        .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+        
+        .testimonial{
+            background:#fff;
+            border-radius:12px;
+            padding:25px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .testimonial:hover{transform: translateY(-5px);}
+        
+        .testimonial-header{display:flex;align-items:center;margin-bottom:15px}
+        .avatar{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            background:#e0e0e0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-right:12px;
+            filter:blur(2px); /* Efeito de privacidade que gera curiosidade */
+        }
+        .avatar i{font-size:24px;color:#999}
+        
+        .user-info strong{display:block;font-size:15px;color:#333}
+        .stars{color: #FFD600; font-size: 12px; margin-top: 2px;}
+
+        .testimonial p{font-size:15px;color:#555;font-style: italic;}
+
+        /* OFERTA */
+        .offer{padding:60px 0}
+        .offer-card{border:2px solid #2C5AA0;border-radius:12px;padding:40px;max-width:550px;margin:auto;text-align:center;background:#fff;box-shadow: 0 10px 30px rgba(0,0,0,0.1)}
+        .price-box{background:#f1f3f5;padding:25px;margin:20px 0;border-radius: 8px;}
+        .new-price{font-size:42px;font-weight:900;color:#2C5AA0}
 
         .security{font-size:14px;color:#555;margin-top:15px}
-        .guarantee{background:#E8F5E9;padding:18px;margin-top:20px;border-left:4px solid #4CAF50;font-size:14px}
+        .guarantee{background:#E8F5E9;padding:18px;margin-top:20px;border-left:4px solid #4CAF50;font-size:14px;text-align: left;}
 
         .mentoria-box{margin-top:30px;padding-top:25px;border-top:1px dashed #ccc}
 
-        .faq{background:#f8f9fa;padding:50px 0}
+        .faq{background:#f8f9fa;padding:60px 0}
         .faq h2{text-align:center;color:#2C5AA0;margin-bottom:30px}
-        .faq details{background:#fff;border:1px solid #ddd;border-radius:6px;padding:15px;margin-bottom:12px}
-        .faq summary{font-weight:700;cursor:pointer}
+        .faq details{background:#fff;border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:12px;cursor: pointer;}
+        .faq summary{font-weight:700;outline: none;}
         .faq p{margin-top:10px;font-size:15px;color:#555}
 
-        .footer{background:#1a247e;color:#fff;padding:30px 0;text-align:center}
+        .footer{background:#1a247e;color:#fff;padding:40px 0;text-align:center}
+        
+        @media (max-width: 768px) {
+            .hero h1{font-size:28px}
+            .new-price{font-size:36px}
+        }
+		
     </style>
 </head>
 
@@ -74,7 +114,7 @@
 <section class="hero">
     <div class="container">
         <h1>
-            Evite Começar o TCC do Jeito Errado  
+            Evite Começar o TCC do Jeito Errado<br>
             <span>e Descobrir Isso Tarde Demais</span>
         </h1>
 
@@ -97,41 +137,28 @@
     </div>
 </section>
 
-<!-- DOR INTENSIFICADA -->
 <section class="pain">
     <div class="container">
         <h2>Se você está travado no TCC, isso não é falta de capacidade</h2>
 
+        <p><strong>O problema quase sempre é o mesmo:</strong> você começa pelo lugar errado.</p>
+
         <p>
-            O problema quase sempre é o mesmo:  
-            <strong>você começa pelo lugar errado</strong>.
+            A maioria tenta iniciar pelo referencial, introdução ou resumo —
+            e só descobre depois que <strong>o tema não fecha e o orientador manda refazer</strong>.
         </p>
 
         <p>
-            A maioria tenta iniciar pelo referencial teórico, pela introdução
-            ou até pelo resumo — e só descobre depois que
-            <strong>o tema não fecha, os objetivos não batem e o orientador manda refazer</strong>.
-        </p>
-
-        <p>
-            Aí vem o medo:  
-            <strong>“E se eu perder meses?”</strong>  
-            <strong>“E se meu orientador reprovar?”</strong>  
-            <strong>“E se eu já estiver errando desde o início?”</strong>
-        </p>
-
-        <p>
-            Este método existe para evitar exatamente isso:  
-            <strong>o erro silencioso no começo que transforma o TCC em estresse constante</strong>.
+            Este método existe para evitar exatamente isso:
+            <strong>errar no começo e pagar o preço lá na frente</strong>.
         </p>
 
         <div class="pain-cta">
-            <a href="#offer" class="btn btn-light">
-                Quero parar de errar no início do TCC
-            </a>
+            <a href="#offer" class="btn btn-light">Quero parar de errar no início do TCC</a>
         </div>
     </div>
 </section>
+
 
 <section class="offer" id="offer">
     <div class="offer-card">
@@ -153,21 +180,15 @@
 
         <div class="guarantee">
             <strong>GARANTIA TOTAL:</strong><br>
-            Se não fizer sentido para você, a Hotmart devolve seu dinheiro em até 7 dias.
+            Se não fizer sentido para você, a Hotmart devolve seu dinheiro em até 7 dias. Sem perguntas.
         </div>
 
         <div class="mentoria-box">
             <h3>Quer Segurança Extra?</h3>
-            <p>
-                Se quiser confirmar se seu tema e objetivos estão corretos
-                <strong>antes de enviar ao orientador</strong>,
-                você pode agendar uma mentoria individual.
-            </p>
+            <p>Se quiser confirmar se seu tema e objetivos estão corretos antes de enviar ao orientador, pode agendar uma mentoria individual.</p>
             <p><strong>Valor:</strong> R$ 67 por hora (opcional)</p>
 
-            <a href="https://wa.me/5583981197746?text=Olá!%20Tenho%20interesse%20na%20mentoria%20sobre%20TCC." 
-               target="_blank" 
-               class="btn btn-secondary">
+            <a href="https://wa.me/5583981197746?text=Olá!%20Tenho%20interesse%20na%20mentoria%20sobre%20TCC." target="_blank" class="btn btn-secondary" style="width:100%">
                 <i class="fab fa-whatsapp"></i> FALAR SOBRE A MENTORIA
             </a>
         </div>
@@ -177,34 +198,85 @@
 <section class="faq">
     <div class="container">
         <h2>Dúvidas Frequentes</h2>
-
         <details>
             <summary>Esse método serve para qualquer curso?</summary>
-            <p>Sim. Ele trabalha a base do TCC: tema, objetivos e organização do método.</p>
+            <p>Sim. Ele trabalha a base lógica de qualquer TCC: tema, delimitação, objetivos e estrutura inicial.</p>
         </details>
-
         <details>
             <summary>Isso é um modelo pronto de TCC?</summary>
-            <p>Não. É um guia para pensar corretamente o TCC desde o início.</p>
+            <p>Não. É um guia para você pensar e estruturar corretamente o SEU trabalho desde o primeiro dia.</p>
         </details>
-
         <details>
-            <summary>Estou totalmente perdido. Esse material me ajuda mesmo?</summary>
-            <p>Sim. Ele foi criado exatamente para quem está travado, com medo de errar e não sabe nem como começar.</p>
+            <summary>Como recebo o acesso?</summary>
+            <p>Imediatamente após a confirmação do pagamento, a Hotmart envia os dados de acesso para o seu e-mail.</p>
         </details>
-
         <details>
             <summary>O pagamento é seguro?</summary>
-            <p>Sim. A venda e a entrega são feitas pela <strong>Hotmart</strong>,a maior plataforma de produtos digitais do Brasil.
-Compra segura, acesso imediato e garantia de 7 dias.</p>
+            <p>Sim. Todo o processo é gerido pela Hotmart, a maior plataforma de produtos digitais da América Latina.</p>
         </details>
     </div>
 </section>
 
+
+<section class="testimonials">
+    <div class="container">
+        <h2>O que outros alunos disseram após usar o método</h2>
+
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <div class="user-info">
+                        <strong>Aristótele L. • Eng.Ambiental</strong>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p>“Passando para agradecer pelo pdf, preciso começar a fazer TCC e quase não tenho tempo pois trabalho e estudo. E seu conteúdo é rápido, necessário e objetivo. Tá me ajudando a poupar tempo rsrs”</p>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <div class="user-info">
+                        <strong>Michele v. • Administração</strong>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p>“Em algumas horas aprendi o que precisava para fazer o meu projeto. Coisa que a faculdade não consegue explicar em um semestre inteiro. A faculdade tem um método de ensino muito ultrapassado.”</p>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <div class="user-info">
+                        <strong>Mariana S. • Serviço Social</strong>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p>“Você eliminou minha ansiedade e sensação de perdida.  Meu orientador só mandava ler e reler e seus e esse pdf  definitivamente me ajudou desenvolver meu tcc. ”</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer class="footer">
-    <p>&copy; 2024 • Método TCC em 13 Páginas</p>
+    <div class="container">
+        <p>&copy; 2024 • Método TCC em 13 Páginas</p>
+        <p style="font-size: 12px; margin-top: 10px; opacity: 0.7;">Este site não faz parte do Facebook ou do Google. Os resultados podem variar de aluno para aluno.</p>
+    </div>
 </footer>
+
+<script>
+    // Smooth Scroll para os links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
-
